@@ -22,6 +22,7 @@
             padding: 20px;
         }
     </style>
+    <link rel="stylesheet" href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" />
 </head>
 <body>
 <h1>Input Form</h1>
@@ -48,11 +49,12 @@
             </td>
         </tr>
         <tr>
-            <td colspan="2"><button type="submit">Register</button></td>
+            <td colspan="2"><button type="submit" class="btn btn-danger">Register</button></td>
         </tr>
     </table>
 </form:form>
 
-
+<script src="/webjars/jquery/3.1.1/jquery.min.js"></script>
+<script src="/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
 </body>
 </html>
