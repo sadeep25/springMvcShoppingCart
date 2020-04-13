@@ -1,6 +1,7 @@
 package com.shoppingcart.application.model;
 
 import static javax.persistence.GenerationType.IDENTITY;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -12,10 +13,10 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "roles", catalog = "test",
+@Table(name = "roles", catalog = "shoppingCartDb",
         uniqueConstraints = @UniqueConstraint(
-                columnNames = { "role", "username" }))
-public class UserRole{
+                columnNames = {"role", "username"}))
+public class UserRole {
 
     private Integer userRoleId;
     private User user;
@@ -42,7 +43,7 @@ public class UserRole{
     }
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "username", nullable = false)
+    @JoinColumn(name = "username", nullable = false )
     public User getUser() {
         return this.user;
     }

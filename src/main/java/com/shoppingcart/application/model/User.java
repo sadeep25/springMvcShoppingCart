@@ -1,26 +1,25 @@
 package com.shoppingcart.application.model;
 
 import javax.persistence.*;
-import javax.validation.constraints.Size;
-
-import org.hibernate.validator.constraints.Email;
-import org.hibernate.validator.constraints.NotEmpty;
-
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
-@Table(name = "users", catalog = "test")
+@Table(name = "users", catalog = "shoppingCartDb")
 public class User {
 
     private String username;
     private String password;
     private boolean enabled;
-    private Set<UserRole> userRole = new HashSet<UserRole>(0);
+    private List<UserRole> userRole = new ArrayList<UserRole>();
 
+    public User(String username) {
+        this.username = username;
+    }
     public User() {
     }
-
     public User(String username, String password, boolean enabled) {
         this.username = username;
         this.password = password;
@@ -28,7 +27,7 @@ public class User {
     }
 
     public User(String username, String password,
-                boolean enabled, Set<UserRole> userRole) {
+                boolean enabled, List<UserRole> userRole) {
         this.username = username;
         this.password = password;
         this.enabled = enabled;
@@ -65,12 +64,12 @@ public class User {
         this.enabled = enabled;
     }
 
-    @OneToMany(cascade=CascadeType.ALL ,fetch = FetchType.LAZY, mappedBy = "user")
-    public Set<UserRole> getUserRole() {
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
+    public List<UserRole> getUserRole() {
         return this.userRole;
     }
 
-    public void setUserRole(Set<UserRole> userRole) {
+    public void setUserRole(List<UserRole> userRole) {
         this.userRole = userRole;
     }
 
